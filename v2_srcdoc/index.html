@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Less CSS</title>
+
+    <script type="text/javascript">
+      var timerStart = Date.now();
+    </script>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/css/foundation.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/js/foundation.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/js/vendor/jquery.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet/less" type="text/css" href="style.less" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.js"></script>
+    
+  </head>
+  <body>
+    
+    <div class="grid-container">
+
+      <div class="grid-x grid-padding-x">
+        <div class="large-4 cell">
+	        <br>
+	        <h1>Less</h1>
+        </div>
+        <div class="large-8 cell">
+	        <br><br>
+	        <ul id="menu" class="menu align-left">
+	          <li><a href="#foundation">Less</a></li>
+	        </ul>
+        </div>
+      </div>
+      <div class="grid-x grid-padding-x grid-margin-x"> <!-- FORMS -->
+        <div class="cell large-6">
+	        <h5 class="subheader">Text Area</h5>
+	        <form>
+            <textarea id="less_css" type="text" id="code" oninput="putcode(this.value)" style="height: 350px;"></textarea>
+          </form>
+        </div>
+
+        <div class="cell large-6">
+          <!-- <iframe src="a.html" style="border:none;"></iframe> -->
+           <iframe frameborder="0" src="a.html"></iframe>
+        </div>
+      </div>
+      <script src="index.js"></script>
+      <script type="text/javascript">
+        $('textarea').keydown(function (e) {
+          var keyCode = e.keyCode || e.which;
+
+          if (keyCode === 9) {
+            e.preventDefault();
+            var start = this.selectionStart;
+            var end = this.selectionEnd;
+
+            // set textarea value to: text before caret + tab + text after caret
+            spaces = "    ";
+            this.value = this.value.substring(0, start) + spaces + this.value.substring(end);
+
+            // put caret at right position again
+            this.selectionStart = this.selectionEnd = start + spaces.length;
+          }
+        });
+      </script>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          console.log("Time until DOMready: ", Date.now()-timerStart);
+        });
+        $(window).load(function() {
+          console.log("Time until everything loaded: ", Date.now()-timerStart);
+        });
+      </script>
+  </body>
+</html>

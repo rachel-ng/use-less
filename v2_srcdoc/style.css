@@ -1,0 +1,9 @@
+form, textarea {
+    font-family: 'Inconsolata', monospace;
+}
+
+textarea {
+    background: #d1d1d1;
+    border: none !important;
+    box-shadow: none !important;
+}
