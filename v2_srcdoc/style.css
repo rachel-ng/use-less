@@ -1,9 +1,17 @@
-form, textarea {
-    font-family: 'Inconsolata', monospace;
+body {
+
 }
 
-textarea {
-    background: #d1d1d1;
-    border: none !important;
-    box-shadow: none !important;
+.container {
+    margin-top: 50px;
+    width: 80%;
+}
+
+.box {
+    /* background: #d1d1d1; */
+    padding: 20px 10px;
+}
+
+form, textarea {
+    font: 15px 'Inconsolata' !important;
 }

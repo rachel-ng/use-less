@@ -10,54 +10,94 @@
       var timerStart = Date.now();
     </script>
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/css/foundation.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/js/foundation.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.0/js/vendor/jquery.min.js"></script>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
     
-    <link rel="stylesheet/less" type="text/css" href="style.less" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.js"></script>
+    <!-- <link rel="stylesheet/less" type="text/css" href="style.less" /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+
+    <!--
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/less.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.44.0/codemirror.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.44.0/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.44.0/mode/javascript/javascript.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.44.0/theme/solarized.min.css">
     
   </head>
   <body>
-    
-    <div class="grid-container">
 
-      <div class="grid-x grid-padding-x">
-        <div class="large-4 cell">
-	        <br>
-	        <h1>Less</h1>
-        </div>
-        <div class="large-8 cell">
-	        <br><br>
-	        <ul id="menu" class="menu align-left">
-	          <li><a href="#foundation">Less</a></li>
-	        </ul>
+    <div class="container top-xs">
+      <div class="row">
+        <div class="box">
+          
+          <h1>Less CSS</h1>
+          
         </div>
       </div>
-      <div class="grid-x grid-padding-x grid-margin-x"> <!-- FORMS -->
-        <div class="cell large-6">
-	        <h5 class="subheader">Text Area</h5>
-	        <form>
-            <textarea id="less_css" type="text" id="code" oninput="putcode(this.value)" style="height: 350px;"></textarea>
-          </form>
+      <div class="row">
+        <div class="col-xs">
+          <div class="box"><form>
+              <textarea id="less_css" type="text"  style="height: 350px;"></textarea>
+              
+              <script>
+                var editor = CodeMirror.fromTextArea($("#less_css")[0], {
+                  mode: "text/x-less",
+                  value: localStorage.getItem('current_code'),
+                  lineNumbers: true,
+                  lineWrapping: true,
+                  onChange: "putcode(editor.getDoc().getValue())",
+                  theme: "solarized dark"
+                });
+                //editor.on('change',"putcode(editor.getValue())");
+              </script>
+              
+          </form></div>
         </div>
-
-        <div class="cell large-6">
-          <!-- <iframe src="a.html" style="border:none;"></iframe> -->
-           <iframe frameborder="0" src="a.html"></iframe>
+        <div class="col-xs">
+          <div class="box"> <iframe frameborder="0"></iframe></div>
         </div>
       </div>
       <script src="index.js"></script>
-      <script type="text/javascript">
+      <script>
+        var saved = localStorage.getItem('current_code');
+
+        if (saved) {
+          document.querySelector("textarea").value = saved;
+          document.querySelector("iframe").srcdoc = val1 + saved + val2;
+        }
+      </script>
+
+      <!--<div class="row">
+        <div class="col-xs">
+          <div class="box">
+            <pre><code class="less">@c: #a123;
+h1 {
+    color: @c;
+    &:hover {
+        color: #000000;
+    }
+}
+</code></pre>
+          </div>
+        </div>
+      </div>-->
+    </div>
+
+    
+    <!--  <script type="text/javascript">
         $('textarea').keydown(function (e) {
           var keyCode = e.keyCode || e.which;
 
@@ -74,7 +114,7 @@
             this.selectionStart = this.selectionEnd = start + spaces.length;
           }
         });
-      </script>
+      </script> -->
       <script type="text/javascript">
         $(document).ready(function() {
           console.log("Time until DOMready: ", Date.now()-timerStart);
