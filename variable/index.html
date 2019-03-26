@@ -1,0 +1,94 @@
+\<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Less CSS</title>
+
+    <script type="text/javascript">
+      var timerStart = Date.now();
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Oxygen|Oxygen+Mono" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- <link rel="stylesheet/less" type="text/css" href="style.less" /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div class="row">
+        <div class="col-xs">
+          <div class="box"><h1>Less CSS</h1></div>
+        </div>
+        <div class="col-xs">
+          <div class="box"><h2>Variables</h2></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container top-xs">
+      <div class="row">
+        <div class="col-xs">
+          <div class="box"><form>
+              <textarea id="less_css" type="text" oninput="putcode(this.value)" onload="putcode(this.value)" style="height:400px; width:100%;"></textarea>@c: negation(#ee4466,#111);
+@b: #aabbcc;
+
+h1 {
+    background-color: lighten(@c, 25%);
+    color: @c;
+    &:hover {
+        color: #000000;
+    }
+}
+
+p {
+    color: @b;
+}
+          </form></div>
+        </div>
+        <div class="col-xs">
+          <div class="box"><iframe frameborder="0" style="height:400px; width:100%;"></iframe></div>
+        </div>
+      </div>
+ 
+      <div class="next"><h1><i class="fas fa-angle-right"></i></h1></div>
+      
+      <script src="index.js"></script>
+      <script>
+        var saved = localStorage.getItem('current_code');
+
+        if (saved) {
+          document.querySelector("textarea").value = saved;
+          document.querySelector("iframe").srcdoc = val1 + saved + val2;
+        }
+      </script>
+    </div>
+    <script type="text/javascript">
+        $('textarea').keydown(function (e) {
+          var keyCode = e.keyCode || e.which;
+
+          if (keyCode === 9) {
+            e.preventDefault();
+            var start = this.selectionStart;
+            var end = this.selectionEnd;
+
+            spaces = "    ";
+            this.value = this.value.substring(0, start) + spaces + this.value.substring(end);
+
+            this.selectionStart = this.selectionEnd = start + spaces.length;
+          }
+        });
+      </script>
+  </body>
+</html>

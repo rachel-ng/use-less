@@ -1,0 +1,8 @@
+var val;
+val1='<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title></title><style type="text/less">';
+val2='</style><script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.js"></script></head><body><h1>Less CSS</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a metus leo. Quisque ac malesuada metus. Aenean eget sapien tincidunt nisl aliquet elementum. Ut porta diam quis odio varius, et consectetur purus commodo. Maecenas tincidunt porttitor condimentum. Aliquam gravida quam id vulputate luctus. Aliquam lorem neque, placerat in fringilla quis, eleifend et sem. Nunc varius fringilla arcu sed pretium. Mauris ut fermentum mi. In porttitor tincidunt justo ut maximus. Nam egestas, ex id pulvinar venenatis, neque neque bibendum diam, quis fermentum urna leo ut orci.</p><p>Quisque sagittis mollis molestie. Sed imperdiet volutpat felis, in sodales felis semper et. Mauris sit amet dictum sapien. Curabitur odio ipsum, cursus et ultrices non, ultricies nec tellus. Vivamus ante velit, laoreet in nisl sit amet, euismod ornare ante. Vestibulum consequat nisl id augue fermentum, vestibulum convallis nisi consequat. Suspendisse non condimentum ipsum, id pellentesque eros. Duis id sodales elit. In eu magna augue. Donec gravida ut elit ac condimentum. Morbi porta convallis urna nec tempus. Donec aliquam risus ex, ut ornare ligula consequat nec.</p></body></html>';
+
+function putcode(val){
+  document.querySelector("iframe").srcdoc = val1 + val + val2;
+  localStorage.setItem("current_code",val)
+}
