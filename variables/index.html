@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico">
-    
+
     <title>Less CSS</title>
 
     <script type="text/javascript">
@@ -33,7 +33,7 @@
           <div class="box"><h1>Less CSS</h1></div>
         </div>
         <div class="col-xs">
-          <div class="box"><h2>Mixins and Functions</h2></div>
+          <div class="box"><h2>Variables and Nesting</h2></div>
         </div>
       </div>
     </div>
@@ -45,19 +45,19 @@
               <textarea id="less_css" type="text" oninput="putcode(this.value)" onload="putcode(this.value)" style="height:525px; width:100%;"></textarea></form></div>
         </div>
         <div class="col-xs">
-          <div class="box"><iframe frameborder="0" style="height:525px; width:100%;"></iframe></div>
+          <div class="box"><iframe frameborder="0" style="height:525px; width:100%; overflow:none;"></iframe></div>
         </div>
       </div>
  
-      <div class="next"><h1><a class="nav" href="../variables/index.html"><i class="nav fas fa-angle-left"></i></a>        <a class="nav" href="../mixins/index.html"><i class="nav fas fa-angle-right"></i></a></h1></div>
+      <div class="next"><h1><a class="nav" href="../mixins/index.html"><i class="fas fa-angle-right"></i></a></h1></div>
       
       <script src="index.js"></script>
       <script>
-        var saved_mixins = localStorage.getItem('current_code_mixins');
+        var saved_variables = localStorage.getItem('current_code_variables');
 
-        if (saved_mixins) {
-          document.querySelector("textarea").value = saved_mixins;
-          document.querySelector("iframe").srcdoc = val1 + saved_mixins + val2;
+        if (saved_variables) {
+          document.querySelector("textarea").value = saved_variables;
+          document.querySelector("iframe").srcdoc = val1 + saved_variables + val2;
         }
       </script>
     </div>
