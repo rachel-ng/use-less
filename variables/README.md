@@ -1,9 +1,9 @@
 ```
-@c: negation(#ee4466,#111);
+@c: #ee4466 + #111111;
 @b: #aabbcc;
-
+    
 h1 {
-    background-color: lighten(@c, 25%);
+    background-color: @c;
     color: @c;
     &:hover {
         color: #000000;
@@ -11,6 +11,6 @@ h1 {
 }
 
 p {
-    color: saturate(@b,50%);
+    color: @b;
 }
 ```
