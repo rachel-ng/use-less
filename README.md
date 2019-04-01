@@ -28,72 +28,72 @@ background: @bg;
 
 ```
 #header {
-width: 10px;
-height: 20px;
-background: #fffff;
+  width: 10px;
+  height: 20px;
+  background: #fffff;
 }
 ```
 
 ## Mixins
 ```
 .bordered {
-border-top: dotted 1px black;
-border-bottom: solid 2px black;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
 }
 
 #menu a {
-color: #111;
-.bordered();
+  color: #111;
+  .bordered();
 }
 
 .post a {
-color: red;
-.bordered();
+  color: red;
+  .bordered();
 }
 ```
 
 ```
 #menu a {
-color: #111;
-border-top: dotted 1px black;
-border-bottom: solid 2px black;
+  color: #111;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
 }
 
 .post a {
-color: red;
-border-top: dotted 1px black;
-border-bottom: solid 2px black;
+  color: red;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
 }
 ```
 
 ## Nesting
 ```
 #header {
-color: black;
-.navigation {
-font-size: 12px;
-}
-.logo {
-width: 300px;
-}
-&:hover {
-color: #ffffff;
-}
+  color: black;
+  .navigation {
+    font-size: 12px;
+  }
+  .logo {
+    width: 300px;
+  }
+  &:hover {
+    color: #ffffff;
+  }
 }
 ```
 
 ```
 #header {
-color: black;
+  color: black;
 }
 #header .navigation {
-font-size: 12px;
+  font-size: 12px;
 }
 #header .logo {
-width: 300px;
+  width: 300px;
 }
 #header:hover {
-color: #ffffff;
+  color: #ffffff;
 }
 ```
 
