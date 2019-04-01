@@ -20,9 +20,9 @@ $ lessc styles.less styles.css
 @bg: #ffffff; 
 
 #header {
-width: @width;
-height: @height;
-background: @bg;
+  width: @width;
+  height: @height;
+  background: @bg;
 }
 ```
 
