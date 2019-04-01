@@ -1,6 +1,7 @@
 ```
 @c: negation(#ee4466,#111);
-@b: #aabbcc;    
+@b: #aabbcc;
+@g: #77aa77;
 
 .box {
     width: 100px;
@@ -19,8 +20,10 @@
     .box();
 }
 
+@black: false;
+
 .box3 {
-    background: tint(@c,25%); 
+    background: if(@black, black, tint(@c,25%)); 
     .box();
 }
 
@@ -50,22 +53,22 @@
 }
 
 .box9 {
-    background: #77aa77;
+    background: @g;
     .box();
 }
 
 .box10 {
-    background: saturate(#77aa77, 25%);
+    background: saturate(@g, 25%);
     .box();
 }
 
 .box11 {
-    background: negation(#77aa77,#888888); //negation(@c,@b) 
+    background: negation(@g,#666666);
     .box();
 }
 
 .box12 {
-    background: average(#77aa77,#000000);
+    background: average(@g,#000000);
     .box();
 }
 
@@ -80,7 +83,7 @@
 }
 
 .box15 {
-    background: difference(yellow,#ffffff);
+    background: difference(yellow,#111111);
     .box();
 }
 
